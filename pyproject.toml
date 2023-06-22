@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "check"
+version = "0.1.0"
+description = "Antenna checks"
+authors = ["Marco Buttu <marco.buttu@gmail.com>"]
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+astropy = "^5.3"
+prefect = "^2.10.16"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+coverage = "^7.2.7"
+tox = "^4.6.0"
+flake8 = "^6.0.0"
+flake8-black = "^0.3.6"
+
+[tool.poetry.group.docs.dependencies]
+sphinx = "^6.0"
+sphinx-rtd-theme = "^1.2.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
