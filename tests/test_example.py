@@ -1,18 +1,16 @@
+from __future__ import annotations
+
 import unittest
 from pathlib import Path
 
-from prefect import flow, task
-
 from astropy.coordinates import EarthLocation
 
-from check.example import (
-    location_from_astropy,
-    observatory_file,
-    location_from_fits,
-    tune_location,
-    geodetic_info,
-    example,
-)
+from check.example import example
+from check.example import geodetic_info
+from check.example import location_from_astropy
+from check.example import location_from_fits
+from check.example import observatory_file
+from check.example import tune_location
 
 
 class TestExampleTasks(unittest.TestCase):

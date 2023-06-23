@@ -1,12 +1,16 @@
+from __future__ import annotations
+
 import math
 from pathlib import Path
 from statistics import mean
+from typing import Any
 
-from prefect import flow, task
-
-from astropy.io import fits
 from astropy import units as u
-from astropy.coordinates import EarthLocation, Angle
+from astropy.coordinates import Angle
+from astropy.coordinates import EarthLocation
+from astropy.io import fits
+from prefect import flow
+from prefect import task
 
 
 observatories = {
@@ -22,13 +26,13 @@ def location_from_astropy(observatory: str = "SRT") -> EarthLocation:
 
 
 @task(description="FITS file produced at {observatory}", persist_result=True)
-def observatory_file(observatory: str, data_dir: str = "") -> str:
-    data_dir = data_dir or Path(__file__).parent.parent / "tests" / "data"
-    for item in Path(data_dir).iterdir():  # Raises FileNotFoundError
+def observatory_file(observatory: str, path: str = "") -> Path:
+    p = Path(path) if path else Path(__file__).parent.parent / "tests" / "data"
+    for item in p.iterdir():  # Raises FileNotFoundError
         if item.is_file():
             with fits.open(item) as hdul:
                 if observatory == hdul[0].header["ANTENNA"]:
-                    return item  # absolute file name
+                    return item  # absolute path
     raise ValueError(f"No FITS file produced at {observatory}")
 
 
@@ -69,7 +73,7 @@ def tune_location(a: EarthLocation, b: EarthLocation) -> EarthLocation:
     persist_result=True,
     result_serializer="json",
 )
-def geodetic_info(location: EarthLocation) -> dict:
+def geodetic_info(location: EarthLocation) -> dict[Any, Any]:
     return {
         "observatory": location.info.name,
         "latitude": location.geodetic.lat.value,
@@ -79,11 +83,13 @@ def geodetic_info(location: EarthLocation) -> dict:
 
 
 @flow(description="Tuned geodetic information of {observatory}")
-def example(observatory: str) -> dict:
+def example(observatory: str) -> dict[Any, Any]:
     loc_from_astropy = location_from_astropy.submit(observatory)
     file_name = observatory_file(observatory)  # long task
     loc_from_file = location_from_fits(file_name)
     tuned_location = tune_location(
-        loc_from_astropy, loc_from_file, wait_for=[loc_from_astropy]
+        loc_from_astropy,
+        loc_from_file,
+        wait_for=[loc_from_astropy],
     )
     return geodetic_info(tuned_location)
