@@ -5,12 +5,12 @@ from pathlib import Path
 
 from astropy.coordinates import EarthLocation
 
-from check.example import example
 from check.example import geodetic_info
 from check.example import location_from_astropy
 from check.example import location_from_fits
 from check.example import observatory_file
 from check.example import tune_location
+from check.example import tuned_geodetic_info
 
 
 class TestExampleTasks(unittest.TestCase):
@@ -76,7 +76,7 @@ class TestExampleTasks(unittest.TestCase):
 
 class TestExampleFlow(unittest.TestCase):
     def test_example(self):
-        info = example("SRT")
+        info = tuned_geodetic_info("SRT")
         self.assertEqual(info["observatory"], "Sardinia Radio Telescope")
         self.assertAlmostEqual(info["latitude"], 39.5, 1)
         self.assertAlmostEqual(info["longitude"], 9.2, 1)

@@ -18,6 +18,7 @@ flake8 = "^6.0.0"
 flake8-black = "^0.3.6"
 pre-commit = "^3.3.3"
 mypy = "^1.4.0"
+reorder-python-imports = "^3.10.0"
 
 [tool.poetry.group.docs.dependencies]
 sphinx = "^6.0"
