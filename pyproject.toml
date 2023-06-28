@@ -6,7 +6,7 @@ authors = ["Marco Buttu <marco.buttu@gmail.com>"]
 readme = "README.rst"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.8"
 astropy = "^5.3"
 prefect = "^2.10.16"
 
