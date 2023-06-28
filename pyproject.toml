@@ -1,8 +1,11 @@
 [tool.poetry]
-name = "check"
+name = "performance"
 version = "0.1.0"
-description = "Antenna checks"
-authors = ["Marco Buttu <marco.buttu@gmail.com>"]
+description = "Procedures for antenna performance"
+authors = [
+    "Francesca Loi <francesca.loi@inaf.it>",
+    "Marco Marongiu <marco.marongiu@inaf.it>",
+]
 readme = "README.rst"
 
 [tool.poetry.dependencies]

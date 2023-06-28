@@ -5,12 +5,12 @@ from pathlib import Path
 
 from astropy.coordinates import EarthLocation
 
-from check.example import geodetic_info
-from check.example import location_from_astropy
-from check.example import location_from_fits
-from check.example import observatory_file
-from check.example import tune_location
-from check.example import tuned_geodetic_info
+from performance.example import geodetic_info
+from performance.example import location_from_astropy
+from performance.example import location_from_fits
+from performance.example import observatory_file
+from performance.example import tune_location
+from performance.example import tuned_geodetic_info
 
 
 class TestExampleTasks(unittest.TestCase):
