@@ -6,12 +6,5 @@ Check antenna state
    :caption: Contents:
 
    intro.rst
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   user.rst
+   dev.rst
