@@ -17,33 +17,46 @@ Development Guide
 Installation
 ------------
 
-First af all, install `Poetry <https://python-poetry.org/>`, a Python package and
+First af all, install `Poetry <https://python-poetry.org/>`_, a Python package and
 dependency manager.  The installation procedure is explained on the `Poetry website
-<https://python-poetry.org/docs/#installation>`.
+<https://python-poetry.org/docs/#installation>`_.
 
-You also need `Git <https://git-scm.com/>` or alternatively the GitHub client.
+You also need `Git <https://git-scm.com/>`_ or alternatively the GitHub client.
 To install the latter one, follow the instruction that you find `here
-https://cli.github.com/manual/installation>`.
+<https://cli.github.com/manual/installation>`_.
 
 Now that Poetry and the GitHub client are installed, clone the `Performance repository
-<https://github.com/discos/performance>`::
+<https://github.com/discos/performance>`_:
+
+.. code-block:: console
 
    $ gh repo clone discos/performance
 
-Install all requirements::
+Install all requirements:
+
+.. code-block:: console
 
    $ cd performance/
    $ poetry shell
    $ poetry install
 
-Run `tox` to see if everything is properly installed::
+The command ``poetry shell`` created a ``.venv`` virtual environment directory
+inside the current directory.  The command ``poetry install`` installed all
+dependencies into the virtual environment.
+
+Finally, run ``tox`` to see if everything is working properly:
+
+.. code-block:: console
 
    $ tox run
 
-Adding a dependency to a group::
+No errors should be reported at the end of the ``tox`` output.
 
 
-
+Next section
+------------
+Let's suppose we want to implement a new procedure.  That procedure
+does... define it.
 We open an issue on GitHub describing the procedure
 we want to implement.
 
