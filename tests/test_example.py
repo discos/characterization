@@ -44,7 +44,7 @@ class TestExampleTasks(unittest.TestCase):
     def test_location_from_fits(self):
         loc = location_from_fits.fn(self.srt_fits)
         self.assertAlmostEqual(loc.height.value, 650)
-        self.assertEqual(loc.info.name, "SRT")
+        self.assertEqual(loc.info.name, "SRTTT")
 
     def test_tune_location_description(self):
         self.assertIn("Tune observatory location", tune_location.description)
