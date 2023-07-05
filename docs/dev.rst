@@ -25,7 +25,7 @@ dependency manager.  The installation procedure is explained on the `Poetry webs
 <https://python-poetry.org/docs/#installation>`_.
 You also need the `GitHub client <https://cli.github.com/>`_ (or alternatively
 `Git <https://git-scm.com/>`_).  To install the latter one, follow the instruction
-that you find `here <https://cli.github.com/manual/installation>`_.
+available `here <https://cli.github.com/manual/installation>`_.
 
 Now that Poetry and the GitHub client are installed, clone the `Perform repository
 <https://github.com/discos/perform>`_:
@@ -42,8 +42,8 @@ Install all requirements:
    $ poetry shell
    $ poetry install
 
-The command ``poetry shell`` created a ``.venv`` virtual environment directory
-inside the current directory.  The command ``poetry install`` installed all
+The command ``poetry shell`` creates a ``.venv`` virtual environment directory
+inside the current directory.  The command ``poetry install`` installs all
 dependencies into the virtual environment.
 
 Finally, run ``tox`` to see if everything is working properly:
@@ -81,43 +81,50 @@ the procedure has to be properly documented before the implementation starts.
 
 Documentation
 ~~~~~~~~~~~~~
-The documentation starts describing the procedure from the user point of
-view.  It means that we should write how the user runs the procedure, what
-the meaning of the parameters is, the description of the result, some
-examples of execution, and so on. This documentation has to be written in the
-:ref:`user` part of this manual.
+We open a GitHub issue related to the documentation that we are supposed to
+write, then we write the documentation describing the procedure from
+the user point of view.  It means that we should indicate how the user runs
+the procedure, the meaning of the parameters, the description of the result,
+some examples of execution, and so on. This documentation has to be written
+in the :ref:`user` of this manual (file :download:`user.rst`).
 
 Design
 ~~~~~~
-Once the procedure interface is clearly documented from the user point of view,
-we see how to split the procedure in small and independend *N* tasks.
-For every task we decide how to automatically test it.  We hopefully have
-*N* contributors working in parallel, one contributor taking care of one
-single task. Each task must have its own GitHub issue that describes what
-the task is supposed to do. Eventually we have *N+1* open issues, one for
-the procedure and one for every task composing the procedure.
+Once the user documentation of the procedure is completed, we analize the
+procedure in order to split it in small and independend *N* tasks.
+We hopefully have *N* contributors working in parallel, one contributor
+taking care of one single task.  Each task must have its own GitHub issue
+that describes what the task is supposed to do.  Eventually we have *N+1*
+open issues, one for the procedure, and one for every task composing the
+procedure.  Finally, for every task we decide how to automatically test it.
 
 Create a branch for the procedure
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Go to the GitHub issue page of the procedure and create a new branch for the
+issue (right side of the page, under the section *Development*). If the
+procedure is called ``foo``, give the branch the name ``foo-procedure``.
 
 Implementation
 ~~~~~~~~~~~~~~
 The contributor in charge of one task writes the implementation and the tests
-related to that task.  The commits have to be pushed on a new branch, giving
-to that branch the name ``fix-issue-K``, where *K* is the ID of the issue.
-Eventually, the collaborator opens a pull request asking for the code to be
-merged on the ``main`` branch. As you will see later, some automatic checks
-are performed before the commit terminates, and the commit aborts in case
-of no proper code formatting.
+related to that task.  You will see later, in section :ref:`example`, how to
+write the tests.
 
-Tox
-~~~~~~~
-Esecuzione dei test etc.
-How to write the tests.
-Before commit.
-How to commit
-How to push
-How to merge.
+Run ``tox``
+~~~~~~~~~~~
+Before pushing the code to the procedure's branch, check your code
+with ``tox``.  See the section :ref:`example-tox`.
+
+Push the code and open a pull request
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Push the code to the procedure's branch and open a pull request asking for
+the code to be merged on the ``main`` branch.
+
+Fix a bug
+~~~~~~~~~
+If you find a bug in the ``main`` branch, open a GitHub issue that describes
+the problem.  To fix the issue, write an automatic test that spots the bug,
+then fix the code.
 
 
 .. _example:
@@ -134,7 +141,6 @@ We open a GitHub issue where we describe the proposal. `Please have a look
 <https://github.com/discos/perform/issues/3>`__.
 
 
-
 .. _example-design:
 
 The design of foo
@@ -145,6 +151,13 @@ The design of foo
 * write the tests
 * tox
 * write the user documentation
+
+
+.. _example-tox:
+
+Run ``tox`` to check the ``example`` procedure
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+foo...
 
 User Story
 ~~~~~~~~~~

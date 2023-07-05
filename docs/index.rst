@@ -14,5 +14,5 @@ Perform antenna characterization
    :maxdepth: 1
    :caption: Contents:
 
-   dev.rst
    user.rst
+   dev.rst
