@@ -1,10 +1,10 @@
-DISCOS Performance Procedures
-=============================
+DISCOS Performe
+===============
 
 .. topic:: Introduction
 
 
-   *Performance* is a Python package containing software procedures that
+   *Performe* is a Python package containing software procedures that
    measure the antenna performance, such as *gain* and *beam shape*.
    This documentation is divided in two parts: :ref:`dev` and :ref:`user`.
    The development part is for people who want to contribute to the project.

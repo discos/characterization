@@ -6,13 +6,13 @@ from pathlib import Path
 from astropy.coordinates import EarthLocation
 from click.testing import CliRunner
 
-from performance.example import cli
-from performance.example import geodetic_info
-from performance.example import location_from_astropy
-from performance.example import location_from_fits
-from performance.example import observatory_file
-from performance.example import tune_location
-from performance.example import tuned_geodetic_info
+from performe.example import cli
+from performe.example import geodetic_info
+from performe.example import location_from_astropy
+from performe.example import location_from_fits
+from performe.example import observatory_file
+from performe.example import tune_location
+from performe.example import tuned_geodetic_info
 
 
 class TestExampleTasks(unittest.TestCase):

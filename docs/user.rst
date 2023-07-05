@@ -12,7 +12,7 @@ User Guide
 
    .. code-block:: console
 
-      $ cd performance  # Go to the root of the project
+      $ cd performe  # Go to the root of the project
       $ poetry shell  # Activate the virtual environment
 
    Now you run the procedure by executing the command ``performe``
@@ -24,7 +24,7 @@ Tuned Geodetic Information - ``example``
 This procedure computes and returns the **average** geodetic information of a
 given observatory.  That information is computed taking in account the data from
 the Astropy library and from a FITS file produced at the observatory.
-To see how it works, execute the command ``perform``:
+To see how it works, execute the command ``performe``:
 
 .. code-block:: console
 

@@ -2,9 +2,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 from __future__ import annotations
 
-project = "DISCOS Performance"
-copyright = "2023, DISCOS Performance Team"
-author = "DISCOS Performance Team"
+project = "DISCOS Performe"
+copyright = "2023, DISCOS Performe Team"
+author = "DISCOS Performe Team"
 release = "0.1"
 
 # -- General configuration ---------------------------------------------------
