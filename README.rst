@@ -6,3 +6,6 @@ Perform antenna characterization
 
 *Perform* is a Python package containing software procedures that
 measure the antenna performance, such as *gain* and *beam shape*.
+
+Documentation for the current version of Perform is available `here
+<https://discos-perform.readthedocs.io/>`__.
