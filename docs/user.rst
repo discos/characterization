@@ -12,10 +12,10 @@ User Guide
 
    .. code-block:: console
 
-      $ cd performe  # Go to the root of the project
+      $ cd perform  # Go to the root of the project
       $ poetry shell  # Activate the virtual environment
 
-   Now you run the procedure by executing the command ``performe``
+   Now you run the procedure by executing the command ``perform``
    and giving the name of the procedure, as explained below.
 
 
@@ -24,18 +24,18 @@ Tuned Geodetic Information - ``example``
 This procedure computes and returns the **average** geodetic information of a
 given observatory.  That information is computed taking in account the data from
 the Astropy library and from a FITS file produced at the observatory.
-To see how it works, execute the command ``performe``:
+To see how it works, execute the command ``perform``:
 
 .. code-block:: console
 
-   $ performe
+   $ perform
    Procedure name:
 
 The prompt is asking you to enter the name of the procedure.  Type ``example``:
 
 .. code-block:: console
 
-   $ performe
+   $ perform
    Procedure name: example
    Tuned Geodetic Info of:
 
@@ -44,7 +44,7 @@ The prompt is now asking to enter the observatory name.  We give the name
 
 .. code-block:: console
 
-   $ performe
+   $ perform
    Procedure name: example
    Tuned Geodetic Info of: SRT
       ...

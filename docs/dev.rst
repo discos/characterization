@@ -9,7 +9,7 @@ Development Guide
    people eager to write documentation, to define how a particular
    procedure should be performed, and of course to write software.
    The first section of this chapter concerns the installation of the
-   `Performe <https://github.com/discos/performe>`_ package and
+   `Perform <https://github.com/discos/perform>`_ package and
    later on, in the section :ref:`workflow`, there is a listing of rules
    of thumbs required to implement a procedure.  The chapter terminates
    with the section :ref:`example` that describes a procedure definition
@@ -27,18 +27,18 @@ You also need the `GitHub client <https://cli.github.com/>`_ (or alternatively
 `Git <https://git-scm.com/>`_).  To install the latter one, follow the instruction
 that you find `here <https://cli.github.com/manual/installation>`_.
 
-Now that Poetry and the GitHub client are installed, clone the `Performe repository
-<https://github.com/discos/performe>`_:
+Now that Poetry and the GitHub client are installed, clone the `Perform repository
+<https://github.com/discos/perform>`_:
 
 .. code-block:: console
 
-   $ gh repo clone discos/performe
+   $ gh repo clone discos/perform
 
 Install all requirements:
 
 .. code-block:: console
 
-   $ cd performe/
+   $ cd perform/
    $ poetry shell
    $ poetry install
 
@@ -67,7 +67,7 @@ Share the idea
 ~~~~~~~~~~~~~~
 When you want to implement a new procedure, as a first step you share your
 idea by writing the proposal as a GitHub issue, `by opening a new issue
-<https://github.com/discos/performe/issues/new>`_ on the GitHub repository.
+<https://github.com/discos/perform/issues/new>`_ on the GitHub repository.
 The proposal description should be as clear as possible, all contributors
 (astronomers, software developers, people in charge of the documentation)
 must be able to understand what the procedure is supposed to do and the
@@ -131,7 +131,7 @@ Let's suppose we want to implement a new procedure called *Tuned Geodetic Inform
 Share the idea
 ~~~~~~~~~~~~~~
 We open a GitHub issue where we describe the proposal. `Please have a look
-<https://github.com/discos/performe/issues/3>`__.
+<https://github.com/discos/perform/issues/3>`__.
 
 
 

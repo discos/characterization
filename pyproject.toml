@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "performe"
+name = "perform"
 version = "0.1.0"
-description = "Procedures for antenna performe"
+description = "Perform antenna characterization"
 authors = [
     "Francesca Loi <francesca.loi@inaf.it>",
     "Marco Marongiu <marco.marongiu@inaf.it>",
@@ -32,4 +32,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-performe = "scripts.cli:performe"
+perform = "scripts.cli:perform"

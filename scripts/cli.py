@@ -9,7 +9,7 @@ import click
 
 def procedures():
     procedures = []
-    p = pathlib.Path(__file__).parent.parent / "performe"
+    p = pathlib.Path(__file__).parent.parent / "perform"
     for item in p.iterdir():  # Raises FileNotFoundError
         if item.is_file():
             name = item.name
@@ -21,9 +21,9 @@ def procedures():
 
 @click.command()
 @click.option("--name", prompt="Procedure name")
-def performe(name):
+def perform(name):
     try:
-        module = importlib.import_module(f"performe.{name}")
+        module = importlib.import_module(f"perform.{name}")
     except ModuleNotFoundError:
         click.secho(f"\nERROR: procedure '{name}' does not exist", fg="red", bold=True)
         print("Available procedures:")
@@ -36,4 +36,4 @@ def performe(name):
 
 
 if __name__ == "__main__":
-    performe()
+    perform()
