@@ -1,15 +1,19 @@
 from __future__ import annotations
 
+import json
+import logging
 import math
 from pathlib import Path
 from statistics import mean
 from typing import Any
 
+import click
 from astropy import units as u
 from astropy.coordinates import Angle
 from astropy.coordinates import EarthLocation
 from astropy.io import fits
 from prefect import flow
+from prefect import get_run_logger
 from prefect import task
 
 
@@ -84,6 +88,8 @@ def geodetic_info(location: EarthLocation) -> dict[Any, Any]:
 
 @flow(description="Tuned geodetic information of {observatory}")
 def tuned_geodetic_info(observatory: str) -> dict[Any, Any]:
+    logger = get_run_logger()
+    logger.setLevel(logging.WARNING)
     loc_from_astropy = location_from_astropy.submit(observatory)
     file_name = observatory_file(observatory)  # long task
     loc_from_file = location_from_fits(file_name)
@@ -93,3 +99,15 @@ def tuned_geodetic_info(observatory: str) -> dict[Any, Any]:
         wait_for=[loc_from_astropy],
     )
     return geodetic_info(tuned_location)
+
+
+def cli():
+    @click.command()
+    @click.option("--observatory", prompt="Tuned Geodetic Info of")
+    def procedure(observatory):
+        result = tuned_geodetic_info(observatory)
+        fres = json.dumps(result, indent=2)  # Formatted result
+        click.secho(f"Geodetic_info: {fres}", bg="green", fg="white", bold=True)
+        return result
+
+    return procedure
