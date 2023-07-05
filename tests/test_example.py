@@ -4,7 +4,9 @@ import unittest
 from pathlib import Path
 
 from astropy.coordinates import EarthLocation
+from click.testing import CliRunner
 
+from performance.example import cli
 from performance.example import geodetic_info
 from performance.example import location_from_astropy
 from performance.example import location_from_fits
@@ -74,8 +76,18 @@ class TestExampleTasks(unittest.TestCase):
         self.assertAlmostEqual(info["height"], 25)
 
 
-class TestExampleFlow(unittest.TestCase):
-    def test_example(self):
+class TestProcedure(unittest.TestCase):
+    def test_cli(self):
+        runner = CliRunner()
+        procedure = cli()
+        result = runner.invoke(procedure, input="SRT")
+        self.assertEqual(result.exit_code, 0)
+        self.assertIn('"observatory": "Sardinia Radio Telescope"', result.output)
+        self.assertIn('"latitude": 39.49', result.output)
+        self.assertIn('"longitude": 9.24', result.output)
+        self.assertIn('"height": 660.83', result.output)
+
+    def test_flow(self):
         info = tuned_geodetic_info("SRT")
         self.assertEqual(info["observatory"], "Sardinia Radio Telescope")
         self.assertAlmostEqual(info["latitude"], 39.5, 1)

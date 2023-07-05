@@ -76,8 +76,8 @@ motivation.
 Once you wrote the GitHub issue, the contributors evaluate the proposal and
 start a discussion by commenting the proposal on the issue's page. The proposal
 can be improved and finally approved, or even discarded.  It is adviced to set
-a short deadline for the decision to be taken.  Once the procedure is approved,
-it has to be properly documented before the implementation starts.
+a short deadline for the decision to be taken.  Once the proposal is approved,
+the procedure has to be properly documented before the implementation starts.
 
 Documentation
 ~~~~~~~~~~~~~
@@ -130,13 +130,8 @@ Let's suppose we want to implement a new procedure called *Tuned Geodetic Inform
 
 Share the idea
 ~~~~~~~~~~~~~~
-We open a `GitHub issue <https://github.com/discos/performance/issues/3>`__,
-please have a look.
-
-Share the idea
-~~~~~~~~~~~~~~
-We open a `GitHub issue <https://github.com/discos/performance/issues/3>`__,
-please have a look.
+We open a GitHub issue where we describe the proposal. `Please have a look
+<https://github.com/discos/performance/issues/3>`__.
 
 
 
