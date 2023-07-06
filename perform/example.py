@@ -87,16 +87,15 @@ def geodetic_info(location: EarthLocation) -> dict[Any, Any]:
 
 
 @flow(description="Tuned geodetic information of {observatory}")
-def tuned_geodetic_info(observatory: str) -> dict[Any, Any]:
+def tuned_geodetic_info(observatory: str) -> dict[str, Any]:
     logger = get_run_logger()
     logger.setLevel(logging.WARNING)
     loc_from_astropy = location_from_astropy.submit(observatory)
-    file_name = observatory_file(observatory)  # long task
-    loc_from_file = location_from_fits(file_name)
+    file_name = observatory_file.submit(observatory)
+    loc_from_file = location_from_fits.submit(file_name)
     tuned_location = tune_location(
         loc_from_astropy,
         loc_from_file,
-        wait_for=[loc_from_astropy],
     )
     return geodetic_info(tuned_location)
 

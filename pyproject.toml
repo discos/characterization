@@ -3,6 +3,7 @@ name = "perform"
 version = "0.1.0"
 description = "Perform antenna characterization"
 authors = [
+    "Marco Buttu <marco.buttu@inaf.it>",
     "Francesca Loi <francesca.loi@inaf.it>",
     "Marco Marongiu <marco.marongiu@inaf.it>",
 ]
