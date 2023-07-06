@@ -6,7 +6,7 @@ User Guide
 .. topic:: Abstract
 
    Each section of this chapter explains how to run a particular procedure.
-   When you follow the examples, we assume that you are at the root directory
+   When you execute the commands, we assume that you are at the root directory
    of the project, and that you have already activated the Pyhon virtual
    environment, as illustrated below:
 
@@ -15,12 +15,12 @@ User Guide
       $ cd perform  # Go to the root of the project
       $ poetry shell  # Activate the virtual environment
 
-   Now you run the procedure by executing the command ``perform``
-   and giving the name of the procedure, as explained below.
+   Now you can run a procedure by executing the command ``perform``,
+   as you will see later on.
 
 
 Tuned Geodetic Information - ``example``
--------------------------------------------
+----------------------------------------
 This procedure computes and returns the **average** geodetic information of a
 given observatory.  That information is computed taking in account the data from
 the Astropy library and from a FITS file produced at the observatory.

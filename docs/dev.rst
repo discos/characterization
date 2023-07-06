@@ -8,50 +8,10 @@ Development Guide
    This chapter explains how to contribute to the project.  We welcome
    people eager to write documentation, to define how a particular
    procedure should be performed, and of course to write software.
-   The first section of this chapter concerns the installation of the
-   `Perform <https://github.com/discos/perform>`_ package and
-   later on, in the section :ref:`workflow`, there is a listing of rules
+   The first section of this chapter, :ref:`workflow`, lists the rules
    of thumbs required to implement a procedure.  The chapter terminates
    with the section :ref:`example` that describes a procedure definition
-   and implementation.  That example shows how to put in practice the steps
-   you have learned in theory.
-
-
-Installation
-------------
-First af all, install `Poetry <https://python-poetry.org/>`_, a Python package and
-dependency manager.  The installation procedure is explained on the `Poetry website
-<https://python-poetry.org/docs/#installation>`_.
-You also need the `GitHub client <https://cli.github.com/>`_ (or alternatively
-`Git <https://git-scm.com/>`_).  To install the latter one, follow the instruction
-available `here <https://cli.github.com/manual/installation>`_.
-
-Now that Poetry and the GitHub client are installed, clone the `Perform repository
-<https://github.com/discos/perform>`_:
-
-.. code-block:: console
-
-   $ gh repo clone discos/perform
-
-Install all requirements:
-
-.. code-block:: console
-
-   $ cd perform/
-   $ poetry shell
-   $ poetry install
-
-The command ``poetry shell`` creates a ``.venv`` virtual environment directory
-inside the current directory.  The command ``poetry install`` installs all
-dependencies into the virtual environment.
-
-Finally, run ``tox`` to see if everything is working properly:
-
-.. code-block:: console
-
-   $ tox run
-
-You have green light when no errors are reported at the end of the ``tox`` output.
+   and implementation.
 
 
 .. _workflow:
@@ -85,7 +45,8 @@ write, then we write the documentation describing the procedure from
 the user point of view.  It means that we should indicate how the user runs
 the procedure, the meaning of the parameters, the description of the result,
 some examples of execution, and so on. This documentation has to be written
-in the :ref:`user` of this manual (file :download:`user.rst`).
+in the :ref:`user` of this manual (file :download:`user.rst`), as you will
+see later.
 
 Design
 ~~~~~~
@@ -110,12 +71,12 @@ Implementation
 ~~~~~~~~~~~~~~
 The contributor in charge of one task writes the implementation and the tests
 related to that task.  You will see later, in section :ref:`example`, how to
-write the tests.
+properly implement a procedure.
 
 Run ``tox``
 ~~~~~~~~~~~
 Before pushing the code to the procedure's branch, check your code
-with ``tox``.  See the section :ref:`example-tox`.
+with ``tox``.  Details are explained in section :ref:`example-tox`.
 
 Push the code and open a pull request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,7 +113,7 @@ markup language used to format the text file is `reStructuredText
 
 After writing the documentation in the *user.rst* file, you should generate
 the HTML and check if there are any errors.  To generate the HTML move to the
-*docs* directory and run ``make html`` (as usual, the virtual evnrironment has
+*docs* directory and run ``make html`` (as usual, the virtual environment has
 to be previously activated):
 
 .. code-block:: console
@@ -211,8 +172,8 @@ The procedure can be splitted in 5 independent tasks:
    from it the observatory name, latitude, longitude, and height.  It returns a
    Python dictionary containing this information.
 
-Splitting a procedure in independent tasks allows each task to be assigned
-to a different collaborator.  In this way the development of the tasks can
+By splitting a procedure in independent tasks we can assign each task to
+a different collaborator.  In this way the development of the tasks can
 progress in parallel.  In addition, the tasks can be executed concurrently,
 speeding up the execution time of the proceedure.
 
@@ -241,7 +202,7 @@ and so on.
 
 The name given by Prefect to what we have been called procedure is *flow*.
 If you have a look at the file :download:`perform/example.py <../perform/example.py>`
-you see how the ``example`` procedure have been implemented.
+you see how the ``example`` procedure has been implemented.
 
 Every task is decorated with the ``task`` decorator, the procedure is decorated
 with the ``flow`` decorator.  Here is the procedure:
@@ -257,7 +218,7 @@ the user runs the procedure by giving the name ``example``, as indicated in the
 <https://discos-perform.readthedocs.io/en/latest/user.html#tuned-geodetic-information-example>`__.  That's because ``example`` is the name of the module.  So, the name of the
 module gives the name to the procedure to be executed by command line.
 
-The five tasks are called sequentially, but under the hood Perfect executes
+The five tasks are called sequentially but Perfect, under the hood, executes
 them concurrently.  Actually, concurrency happens only when we *submit* the
 tasks to the task runner, as in the following case:
 
@@ -279,7 +240,7 @@ We also add the following two lines at the end of the file:
    if __name__ == "__main__":
        tuned_geodetic_info("SRT")
 
-Now we run *example.py* throught Linux ``time``:
+Now we run *example.py* throught the Unix ``time`` command:
 
 .. code-block:: console
 
@@ -339,8 +300,8 @@ configuration files and documentation -- are properly formatted.
 Push the code and open a pull request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If ``tox`` is happy, you can commit your code and push it to the repository.
-Write in the commit message the issue ID of your task.  For instance, if the
-issue ID of your task is 77, you write:
+Insert in the commit message the issue ID of your task.  For instance,
+if the issue ID of your task is 77, write:
 
    .. code-block:: console
 
