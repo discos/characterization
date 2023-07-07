@@ -1,10 +1,17 @@
 from __future__ import annotations
 
+import argparse
 import importlib
 import pathlib
 import sys
 
 import click
+
+parser = argparse.ArgumentParser(
+    description="Perform antenna characterization",
+    usage="just run 'perform', no arguments are required",
+)
+args = parser.parse_args()
 
 
 def procedures():
