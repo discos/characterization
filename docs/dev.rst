@@ -83,12 +83,6 @@ Push the code and open a pull request
 Push the code to the procedure's branch and open a pull request asking for
 the code to be merged to the ``main`` branch.
 
-Fix a bug
-~~~~~~~~~
-If you find a bug in the ``main`` branch, open a GitHub issue that describes
-the problem.  To fix the issue, write an automatic test that spots the bug,
-then fix the code.
-
 
 .. _example:
 
@@ -196,31 +190,30 @@ Implementation
 ~~~~~~~~~~~~~~
 To implement the procedures we use a workflow manager called `Prefect
 <https://www.prefect.io/>`__.  Basically, Prefect makes easy splitting the
-procedure in smaller tasks.  It has several features, like concurrency,
+procedure in small tasks.  It has several features, like concurrency,
 waiting for task *X* to terminate before executing task *Y*, scheduling,
 and so on.
 
 The name given by Prefect to what we have been called procedure is *flow*.
 If you have a look at the file :download:`perform/example.py <../perform/example.py>`
-you see how the ``example`` procedure has been implemented.
-
-Every task is decorated with the ``task`` decorator, the procedure is decorated
-with the ``flow`` decorator.  Here is the procedure:
+you see how the ``example`` procedure has been implemented.  Basically, every task
+is decorated with the ``task`` decorator, the procedure is decorated with the ``flow``
+decorator.  To have an idea, here is the procedure:
 
 .. literalinclude:: ../perform/example.py
    :language: python
    :linenos:
    :lines: 89-100
 
-As you can see the procedure is not defined by the name ``example``.  Nevertheless,
+As you can see, the procedure is not defined by the name ``example``.  Nevertheless,
 the user runs the procedure by giving the name ``example``, as indicated in the
 `user documentation
 <https://discos-perform.readthedocs.io/en/latest/user.html#tuned-geodetic-information-example>`__.  That's because ``example`` is the name of the module.  So, the name of the
 module gives the name to the procedure to be executed by command line.
 
-The five tasks are called sequentially but Perfect, under the hood, executes
-them concurrently.  Actually, concurrency happens only when we *submit* the
-tasks to the task runner, as in the following case:
+The five tasks are disposed sequentially in the code but Perfect, under the hood,
+executes them concurrently.  Actually, concurrency happens only when we *submit*
+the tasks to the task runner, as in the following case:
 
 .. literalinclude:: ../perform/example.py
    :language: python
@@ -269,12 +262,11 @@ As you will see, the tasks are going to be executed sequentially:
    user	0m2,980s
    sys	0m1,494s
 
-Finally, there is a ``cli()`` function defined at the end of the module.  That
-function wraps the procedure in order for it to be called by command line.
-
-.. note:: To see the tests of the ``example`` procedure, have a look at
-   :download:`tests/test_example.py <../tests/test_example.py>`.  You can
-   use these tests as a template for testing your procedure.
+.. note:: The ``cli()`` function defined at the end of the module wraps the command
+   line entry point, in order for the prompt to not stop the automatic execution of
+   the tests. By the way, to see the tests of the ``example`` procedure have a look
+   at :download:`tests/test_example.py <../tests/test_example.py>`.  You can use
+   these tests as a template for testing your procedure.
 
 .. _example-tox:
 
@@ -299,8 +291,8 @@ configuration files and documentation -- are properly formatted.
 
 Push the code and open a pull request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-If ``tox`` is happy, you can commit your code and push it to the repository.
-Insert in the commit message the issue ID of your task.  For instance,
+If ``tox`` is happy, you can commit your code and push to the repository.
+In the commit message insert the issue ID of your task.  For instance,
 if the issue ID of your task is 77, write:
 
    .. code-block:: console
